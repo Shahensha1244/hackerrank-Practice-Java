@@ -1,0 +1,1770 @@
+//sale by match
+ public static int sockMerchant(int n, List<Integer> ar) {
+    // Write your code here
+        int count=0;
+        for(int i=0;i<n;i++)
+        {
+            if(ar.get(i)!=0)
+            {
+                for(int j=i+1;j<n;j++)
+                {
+                    if(ar.get(i)==ar.get(j))
+                    {
+                        count++;
+                        ar.set(j,0);
+                        break;
+                    }
+                }
+            }
+        }
+        return count;
+
+    }
+
+}
+--------------------------------------------------------------------------------------------
+//Simple Array Sum
+ public static int simpleArraySum(List<Integer> ar) {
+    // Write your code here
+        int count=0;
+        for(int i=0;i<ar.size();i++)
+        {
+            count=count+ar.get(i);
+        }
+        return count;
+
+    }
+
+}
+------------------------------------------------
+//Breaking the Records
+  public static List<Integer> breakingRecords(List<Integer> scores) {
+    // Write your code here
+        int max_count=0;
+        int min_count=0;
+        int max_value=scores.get(0);
+        int min_value=scores.get(0);
+        for(int i=1;i<scores.size();i++)
+        {
+            int val=scores.get(i);
+            if(val>max_value){
+                max_value=val;
+                max_count++;
+            }
+            if(val<min_value){
+                min_value=val;
+                min_count++;
+            }
+        }
+        ArrayList<Integer>al=new ArrayList<>();
+        al.add(max_count);
+        al.add(min_count);
+        return al;
+        
+
+    }
+
+}
+------------------------------------------------------------------
+//Staircase
+ public static void staircase(int n) {
+    // Write your code here
+        int i,j,k;
+        for(i=0;i<n;i++)
+        {
+          for(k=n-1;k>i;k--)
+            {
+              System.out.print(" ");
+            }
+          for(j=0;j<=i;j++)
+            {
+              System.out.print("#");
+            }
+          System.out.println();
+        }
+
+    }
+
+}
+-----------------------------------------------------------------------
+//Compare the Triplets
+  public static List<Integer> compareTriplets(List<Integer> a, List<Integer> b) {
+        int alice_score=0;
+        int bob_score=0;
+        for(int i=0;i<a.size();i++)
+            {
+                if(a.get(i)>b.get(i))
+                    alice_score++;
+                if(a.get(i)<b.get(i))
+                    bob_score++;
+            }
+            ArrayList<Integer> al=new ArrayList<>();
+            al.add(alice_score);
+            al.add(bob_score);
+            return al;
+                                                                                                                                                                                               
+    }
+
+}
+----------------------------------------------------------------
+//Between Two Sets
+
+    public static int getTotalX(List<Integer> a, List<Integer> b) {
+    // Write your code here
+        int first = a.get(a.size()-1);//last element of a
+        int last = b.get(0);//first element of b
+        ArrayList<Integer> al=new ArrayList<>();
+        for(int i=first;i<=last;i++){
+            int count = 0;
+            for(int j=0;j<a.size();j++){
+                if(i%a.get(j)==0){
+                    count++;
+                }else{
+                    break;
+                }
+            }
+            if(count==a.size()){
+                al.add(i);
+            }
+        }
+        int ans =0;
+        for(int i=0;i<al.size();i++){
+            int count =0;
+            for(int j=0;j<b.size();j++){
+                if(b.get(j)%al.get(i)==0){
+                    count++;
+                }else{
+                    break;
+                }
+            }
+            if(count==b.size()){
+                ans++;
+            }
+        }
+        return ans;
+    }
+
+}
+-----------------------------------------------------------------------
+//Bill Division
+   public static void bonAppetit(List<Integer> bill, int k, int b) {
+    // Write your code here
+        bill.set(k,0);
+        int sum=0;
+        for(int i:bill)
+        {
+            sum=sum+i;
+        }
+        sum=sum/2;
+        if(sum==b)
+        {
+            System.out.println("Bon Appetit");
+        }
+        else{
+            System.out.println(b-sum);
+        }
+
+    }
+---------------------------------------------------------------------
+//A Very Big Sum
+ public static long aVeryBigSum(List<Long> ar) {
+    // Write your code here
+        long bigsum=0;
+        for(int i=0;i<ar.size();i++)
+        {
+          bigsum=bigsum+ar.get(i);  
+        }
+        return bigsum;
+    }
+--------------------------------------------------------------------
+//Plus Minus
+
+    public static void plusMinus(List<Integer> arr) {
+    // Write your code here
+        int positive=0;
+        int negative=0;
+        int zero=0;
+        for(int i=0;i<arr.size();i++)
+        {
+            if(arr.get(i)>0)   positive++;
+            if(arr.get(i)<0)   negative++;
+            if(arr.get(i)==0)  zero++;
+        }
+        float n=arr.size();
+        System.out.printf("%.6f\n",positive/n);
+        System.out.printf("%.6f\n",negative/n);
+        System.out.printf("%.6f\n",zero/n);
+        
+    }
+----------------------------------------------------------------------------
+//Diagonal Difference
+
+    public static int diagonalDifference(List<List<Integer>> arr) {
+    // Write your code here
+        int lds=0;//lds=left diagonal sum
+        int rds=0;//rds=right daigonal sum
+        for(int i=0;i<arr.size();i++)
+        {
+            for(int j=0;j<arr.size();j++)
+            {
+                if(i==j)
+                {
+                    lds=lds+arr.get(i).get(j);
+                }
+                if(i+j==arr.size()-1)
+                {
+                    rds=rds+arr.get(i).get(j);
+                }
+            }
+        }
+        return Math.abs(lds-rds);
+
+    }
+-------------------------------------------------------------------------------------
+//Birthday Cake Candles
+
+    public static int birthdayCakeCandles(List<Integer> candles) {
+    // Write your code here
+        return Collections.frequency(candles,Collections.max(candles));
+
+    }
+----------------------------------------------------------------------------------------
+//Grading Students
+
+    public static List<Integer> gradingStudents(List<Integer> grades) {
+    // Write your code here
+        List<Integer>list=new ArrayList<>();
+        for(int i=0;i<grades.size();i++)
+        {
+        int x=grades.get(i);
+        int rem=x%5;
+        if(x>=38 && ((x+5)-rem)-x<3)
+        {
+            list.add((x+5)-rem);
+        }
+        else{
+            list.add(x);
+        }
+        }
+        return list;
+
+    }
+---------------------------------------------------------------------------------------------
+//Drawing Book
+
+    public static int pageCount(int n, int p) {
+    // Write your code here
+        int front=p/2;
+        int back=(n/2)-front;
+        
+        return Math.min(front,back);
+
+    }
+-------------------------------------------------------------------------------------------
+//Divisible Sum Pairs
+
+    public static int divisibleSumPairs(int n, int k, List<Integer> ar) {
+    // Write your code here
+        int pair=0;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                if((ar.get(i)+ar.get(j))%k==0)
+                {
+                    pair++;
+                }
+            }
+        }
+        return pair;
+
+    }
+-----------------------------------------------------------------------------------------
+//Mini-Max Sum
+
+    public static void miniMaxSum(List<Integer> arr) {
+    // Write your code here
+        long totalsum=arr.get(0);
+        int max=arr.get(0);
+        int min=arr.get(0);
+        for(int i=1;i<arr.size();i++)
+        {
+            totalsum=totalsum+arr.get(i);
+            
+            if(arr.get(i)>max)
+            {
+                max=arr.get(i);
+            }
+            if(arr.get(i)<min)
+            {
+                min=arr.get(i);
+            }
+        }
+        System.out.println((totalsum-max)+" "+(totalsum-min));
+
+    }
+---------------------------------------------------------------------
+//Counting Valleys
+int sum=0;
+        int vally=0;
+        for(int i=0;i<steps;i++)
+        {
+            if(path.charAt(i)=='U')
+            {
+                if(sum==-1)
+                {
+                    vally++;
+                }
+                sum++;
+            } else{
+                sum--;
+            }
+        }
+       return vally;
+---------------------------------------------------------------------
+//Library Fine
+if(y1>y2)
+      {
+          return 10000;
+          
+      }else if(m1>m2&&y1==y2)
+      {
+          return 500*(m1-m2);
+          
+      }
+        else if(d1>d2&&m1==m2&&y1==y2){
+            return 15*(d1-d2);
+        }
+        else
+        {
+            return 0;
+        }
+---------------------------------------------------------------------
+//Time Conversion
+ String start=s.substring(0,2),end=s.substring(2,8);
+        int hour=Integer.parseInt(start);
+        if(s.contains("p")&& hour<12){
+            hour +=12;
+            start=String.valueOf(hour);
+            
+        }
+        else if(s.contains("A")&& hour==12){
+            start="00";
+        }
+        s=start+end;
+        return s;
+---------------------------------------------------------------------
+//The Hurdle Race
+int max=Collections.max(height);
+        if(k>max)
+            return 0;
+        else 
+            return max - k;
+---------------------------------------------------------------------
+//Minimum Absolute Difference in an Array
+ Integer min=Integer.MAX_VALUE;
+        Collections.sort(arr);
+        for(int i=1;i<arr.size();i++){
+            int diff=Math.abs(arr.get(i-1)-arr.get(i));
+            if(diff<min){
+                min=diff;
+            }
+        }
+        return min;
+---------------------------------------------------------------------
+//Day of the Programmer
+int m[]=new int[]{31,28,31,30,31,30,31,31};
+        int p=256,sum=0,diff=0;
+        if (year==1917)
+            return "26.09"+Integer.toString(year);
+            if(year<=1917)
+            {
+                if(year%4==0)
+                    m[1]=29;
+                
+            }
+            if(((year%4==0)&&(year%100!=0))||year%400==0)
+                m[1]=29;
+            for(int a:m)
+                sum+=a;
+            diff=p-sum;
+            return Integer.toString(diff)+".09."+Integer.toString(year);
+---------------------------------------------------------------------
+//Mars Exploration
+int cnt=0;
+        char[] array=s.toCharArray();
+        for(int i=0;i<array.length-2;i++)
+        {
+            char t=array[i];
+            if(array[i]!='S'){
+                cnt++;
+            }
+            if(array[i+1]!='O'){
+                cnt++;
+            }
+            if(array[i+2]!='S'){
+                cnt++;
+            }
+            i=i+2;
+        }
+        return cnt;
+---------------------------------------------------------------------
+//Electronics Shop
+int max=0;
+        for(int i=0;i<keyboards.length;i++){
+            for(int j=0;j<drives.length;j++){
+            int sum=keyboards[i]+drives[j];
+            if(sum>max&&sum<=b){
+                max=sum;
+            }
+        }
+
+    }
+        return max>0?max:-1;
+---------------------------------------------------------------------
+//CamelCase
+int count=0;
+        for(int i=0;i<s.length();i++)
+        {
+            char ch=s.charAt(i);
+            if(ch>=65&&ch<=90)
+            {
+                count++;
+            }
+        }
+        return count+1;
+---------------------------------------------------------------------
+//Viral Advertising
+int shared=5;
+        int liked=0;
+        int cu=0;
+        for(int i=0;i<n;i++)
+        {
+            liked=shared/2;
+            shared=liked*3;
+            cu=cu+liked;
+            
+        }
+        return cu;
+---------------------------------------------------------------------
+//Jumping on the Clouds: Revisited
+ int index=0;
+        int e=100;
+        for(int i=0;i<c.length;i++)
+        {
+            index=(index+k)%c.length;
+            if(c[index]==1)
+                e=e-3;
+                else
+                    e=e-1;
+                if(index==0)
+                    break;
+        }
+        return e;
+---------------------------------------------------------------------
+//Marc's Cakewalk
+ Collections.sort(calorie,Collections.reverseOrder());
+        long min_miles=0;
+        for(int i=0;i<calorie.size();i++){
+            min_miles=min_miles+((long)Math.pow(2,i)*calorie.get(i));
+            
+        }
+        return min_miles;
+--------------------------------------------------------------------
+//Cats and a Mouse
+ int aCat=Math.abs(z-x);
+        
+    int bCat=Math.abs(z-y);
+        if(aCat==bCat){
+            return "Mouse C";
+            
+        }else if(aCat<bCat){
+           return "Cat A" ;
+            
+        }
+        else{
+            return "Cat B";
+
+--------------------------------------------------------------------
+//Save the Prisoner!
+int a=m+s;
+        a=(a-1)%n;
+        if(a==0)
+            a=n;
+        return a;
+--------------------------------------------------------------------
+//Beautiful Days at the Movies
+ int count=0;
+        for(int a=i;a<=j;a++){
+            int num=a;
+            int rev=0;
+            while(num!=0){
+                int rem=num%10;
+                rev=rev*10+rem;
+                num=num/10;
+                
+            }
+            int diff=Math.abs(a-rev);
+            if(diff%k==0)
+            
+                count++;
+            }
+            return count;
+--------------------------------------------------------------------
+//Sequence Equation
+ ArrayList<Integer>list=new ArrayList<>();
+        int x=1,y=0;
+        while(x<=p.size()){
+            for(int i=0;i<p.size();i++){
+                if(p.get(i)==x){
+                    
+                for(int j=0;i<p.size();j++){
+                if(p.get(j)==(i+1)){
+                    y=j+1;
+                    break;
+                    
+                }
+            }
+            list.add(y);
+            y=0;
+            x++;
+            break;
+            
+        }
+    }
+    }
+    return list;
+--------------------------------------------------------------------
+//Grid Challenge
+
+ public static String sort(String s){
+        char[]ch=s.toCharArray();
+        Arrays.sort(ch);
+        return new String(ch);
+    }
+
+    public static String gridChallenge(List<String> grid) {
+    // Write your code here
+        ArrayList<String> al=new ArrayList<>();
+        for(int i=0;i<grid.size();i++)
+        {
+            String s=sort(grid.get(i));
+            al.add(s);
+        }
+      int size=al.get(0).length();
+        for(int i=1;i<al.size();i++)
+        {
+            for(int j=0;j<size;j++)
+            {
+                if(al.get(i-1).charAt(j)>al.get(i).charAt(j)){
+                    return "NO";
+                }
+            }
+        }
+        return "YES";
+--------------------------------------------------------------------
+//Angry Professor
+int count=0;
+        String str="";
+        for(int i=0;i<a.size();i++){
+            if(a.get(i)<=0)
+                count++;
+            if(count>=k)
+                str="NO";
+            else
+                str="YES";
+        }
+        return str;
+--------------------------------------------------------------------
+//Sherlock and Squares
+int first=(int)Math.ceil(Math.sqrt(a));
+        int last=(int)Math.floor(Math.sqrt(b));
+        return last-first+1;
+--------------------------------------------------------------------
+//Circular Array Rotation
+public static void reverse(List<Integer>a,int i,int j){
+    int l=i;
+    int r=j;
+    while(l<r)
+    {
+        int temp=a.get(l);
+        a.set(l,a.get(r));
+        a.set(r,temp);
+        l++;
+        r--;
+    }
+}
+    public static List<Integer> circularArrayRotation(List<Integer> a, int k, List<Integer> queries) {
+    // Write your code here
+        List<Integer>ans=new ArrayList<Integer>();
+        k=k%a.size();
+        if(k<=0){
+            k=k+a.size();
+        }
+        reverse(a,0,a.size()-k-1);
+        reverse(a,a.size()-k,a.size()-1);
+        reverse(a,0,a.size()-1);
+        for(int i=0;i<queries.size();i++)
+        {
+            int q=a.get(queries.get(i));
+            ans.add(q);
+        }
+      return ans;
+    }
+--------------------------------------------------------------------
+//Big Sorting
+public static List<String> bigSorting(List<String> input) {
+    // Write your code here
+    Collections.sort(input,new Comparator<String>()
+                     {
+                         public int compare(String a,String b)
+                         {
+                             if(a.length()>b.length()) return 1;
+                             else if(a.length()<b.length()) return-1;
+                             else{
+                                 BigInteger b1=new BigInteger(a);
+                                 BigInteger b2=new BigInteger(b);
+                                 return b1.compareTo(b2);
+                             }
+                         }
+                     });
+        return input;
+    }
+--------------------------------------------------------------------
+//Equalize the Array
+HashMap<Integer,Integer>hm=new HashMap<>();
+        for(int i=0;i<arr.size();i++)
+        {
+            hm.put(arr.get(i),hm.getOrDefault(arr.get(i),0)+1);
+            }
+                int max=Integer.MIN_VALUE;
+            for(Map.Entry<Integer,Integer>e:hm.entrySet()){
+                int value =e.getValue();
+                if(value>max){
+                    max=value;
+                }
+            } 
+            return arr.size()-max;
+--------------------------------------------------------------------
+//Maximum Perimeter Triangle
+Collections.sort(sticks);
+        ArrayList<Integer>al=new ArrayList<>();
+        int i=sticks.size()-3;
+        while(i>=0){
+            if(sticks.get(i)+sticks.get(i+1)>sticks.get(i+2)){
+                break;
+                
+            }
+            else{
+                i=i-1;
+                
+            }
+        }
+        if(i<0){
+            al.add(-1);
+            
+        }
+        else{
+            al.add(sticks.get(i));
+            al.add(sticks.get(i+1));
+            al.add(sticks.get(i+2));
+        }
+        return al;
+--------------------------------------------------------------------
+//Beautiful Binary String
+Pattern p=Pattern.compile("010");
+        Matcher m=p.matcher(b);
+        int count=0;
+        while(m.find()) count++;
+        return count;   
+--------------------------------------------------------------------
+//Utopian Tree
+int value=1;
+        for(int i=1;i<=n;i++)
+        {
+            if(i%2==0)
+            {
+                value+=1;
+                
+            }
+            else{
+                value*=2;
+                
+            }
+        }
+        return value;
+--------------------------------------------------------------------
+//Picking Numbers
+ Collections.sort(a);
+        int r[]=new int[a.size()];
+        int b=0;
+        int count=0;
+        for(int i=0;i<a.size();i++)
+        {
+            for(int j=i+1;j<a.size();j++)
+            {
+                int check=Math.abs((a.get(i)-a.get(j)));
+                if(check<=1){
+                    count++;
+                }
+            }
+            r[b]=count;
+            b++;
+            count=0;
+        } 
+        int max=Integer.MIN_VALUE;
+        for(int i:r){
+            if(i>max)
+                max=i;   
+    }
+   
+    return max+1;
+--------------------------------------------------------------------
+//Repeated String
+public static int noOfA(String s,long rem){
+        int count=0;
+        for(int i=0;i<rem;i++){
+            if(s.charAt(i)=='a'){
+                count++;
+            }
+        }
+        return count;
+    }
+    public static long repeatedString(String s, long n) {
+    // Write your code here
+        int a_count=0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='a'){
+                a_count++;
+                
+            }
+            
+        }
+        long rem=n%s.length();
+        if(rem==0){
+            return(n/s.length())*a_count;
+            
+        }
+        int count=noOfA(s,rem);
+        return(n/s.length())*a_count+count;
+
+    }
+--------------------------------------------------------------------
+//Designer PDF Viewer
+int max=-1;
+        for(int i=0;i<word.length();i++)
+        {
+            int ascii=(int)word.charAt(i);
+            int val=ascii-97;
+            if(h.get(val)>max){
+                max=h.get(val);
+            }
+        }
+        return word.length()*max;
+--------------------------------------------------------------------
+//Append and Delete
+        int si=0;
+        int ti=0;
+        while(si<s.length()&&ti<t.length()){
+            if(s.charAt(si)==t.charAt(ti)){
+                si++;
+                ti++;
+            }
+            else{
+                break;
+                
+            }
+        }
+        int restOp=s.length()-si+t.length()-ti;
+        if(k<restOp)
+            return "No";
+        if((k-restOp)%2==0)
+            return "Yes";
+        if(k>=s.length()+t.length())
+            return "Yes";
+            return "No";
+--------------------------------------------------------------------
+//Two Strings
+  HashSet<Character>hs=new HashSet<>();
+        for(Character ch:s1.toCharArray()){
+            hs.add(ch);
+            
+        }
+        for(Character ch:s2.toCharArray()){
+            if(hs.contains(ch)){
+                return "YES";
+            }
+        }
+        return "NO";
+--------------------------------------------------------------------
+//Chocolate Feast
+  int num=n/c;
+        int wrapper=num;
+        if(wrapper<m){
+            return num;
+            
+        }else{
+            while(wrapper>=m){
+                num=num+1;
+                wrapper=wrapper-m+1;
+            }
+            return num;
+    =====================================================================
+
+//Day of the Programmer
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'dayOfProgrammer' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts INTEGER year as parameter.
+     */
+
+    public static String dayOfProgrammer(int year) {
+    // Write your code here
+ int[] months = new int[] {31,28,31,30,31,30,31,31,30,31};
+        if (year == 1918) {
+            months[1] = 15;
+        } else if (year <= 1917) {
+            if (year % 4 == 0)
+                months[1]++;
+        } else if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))  {
+            months[1]++;
+        }
+        int days = 256, date = 0, month = 0;
+        while (days > 0) {
+            if (months[month] > days)
+                date = days;
+            days -= Math.min(days, months[month]);
+            month++;
+        }
+        return (date < 10 ? "0" : "") + date + "." + (month < 10 ? "0" : "") + month + "." + year;
+    }
+    }
+
+
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int year = Integer.parseInt(bufferedReader.readLine().trim());
+
+        String result = Result.dayOfProgrammer(year);
+
+        bufferedWriter.write(result);
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
+
+
+======================================================================================
+
+//Tower Breakers
+
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'towerBreakers' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER n
+     *  2. INTEGER m
+     */
+
+    public static int towerBreakers(int n, int m) {
+    // Write your code here
+      if(m == 1)
+            return 2;//As the first player cannot make any move, so the second wins.
+        int count = 0;
+        
+        while(n > 0) {
+            count += 1;
+            n -= 1;
+        }
+        if(count % 2 == 0)
+            return 2;//because the first player starts, which means if the count is even                        the second player wins
+        else
+            return 1;
+    
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int t = Integer.parseInt(bufferedReader.readLine().trim());
+
+        IntStream.range(0, t).forEach(tItr -> {
+            try {
+                String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+
+                int n = Integer.parseInt(firstMultipleInput[0]);
+
+                int m = Integer.parseInt(firstMultipleInput[1]);
+
+                int result = Result.towerBreakers(n, m);
+
+                bufferedWriter.write(String.valueOf(result));
+                bufferedWriter.newLine();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
+=========================================================
+
+//Caesar Cipher
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'caesarCipher' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts following parameters:
+     *  1. STRING s
+     *  2. INTEGER k
+     */
+
+    public static String caesarCipher(String s, int k) {
+    // Write your code here
+StringBuilder res = new StringBuilder();
+        for(char ch:s.toCharArray()) 
+            if('a' <= ch && ch <= 'z') 
+                res.append((char)('a'+(ch-'a'+k)%26));
+            else if('A' <= ch && ch <= 'Z') 
+                res.append((char)('A'+(ch-'A'+k)%26));
+            else 
+                res.append(ch);
+        return res.toString();
+    }
+    }
+
+
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int n = Integer.parseInt(bufferedReader.readLine().trim());
+
+        String s = bufferedReader.readLine();
+
+        int k = Integer.parseInt(bufferedReader.readLine().trim());
+
+        String result = Result.caesarCipher(s, k);
+
+        bufferedWriter.write(result);
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
+
+======================================================================
+
+//Time Conversion
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'timeConversion' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts STRING s as parameter.
+     */
+
+    public static String timeConversion(String s) {
+    // Write your code here
+    boolean isPM = s.endsWith("PM");
+        
+        s = s.replace("AM","");
+        s = s.replace("PM","");
+        
+        String[] t = s.split(":");
+        
+        int hour = Integer.valueOf(t[0]);
+        
+        if (!isPM && hour == 12)
+            hour = 0;
+        else if (isPM && hour > 1 && hour < 12)
+            hour += 12;
+            
+        String ret = (hour < 10 ? "0":"")+hour+":"+t[1]+":"+t[2];
+        System.out.println(ret);
+        return ret;
+
+    }
+
+}
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String s = bufferedReader.readLine();
+
+        String result = Result.timeConversion(s);
+
+        bufferedWriter.write(result);
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
+
+==========================================================================
+
+// Library Fine
+
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'libraryFine' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER d1
+     *  2. INTEGER m1
+     *  3. INTEGER y1
+     *  4. INTEGER d2
+     *  5. INTEGER m2
+     *  6. INTEGER y2
+     */
+
+    public static int libraryFine(int d1, int m1, int y1, int d2, int m2, int y2) {
+    // Write your code here
+     if(y1>y2)
+      {
+          return 10000;
+          
+      }else if(m1>m2&&y1==y2)
+      {
+          return 500*(m1-m2);
+          
+      }
+        else if(d1>d2&&m1==m2&&y1==y2){
+            return 15*(d1-d2);
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+
+        int d1 = Integer.parseInt(firstMultipleInput[0]);
+
+        int m1 = Integer.parseInt(firstMultipleInput[1]);
+
+        int y1 = Integer.parseInt(firstMultipleInput[2]);
+
+        String[] secondMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+
+        int d2 = Integer.parseInt(secondMultipleInput[0]);
+
+        int m2 = Integer.parseInt(secondMultipleInput[1]);
+
+        int y2 = Integer.parseInt(secondMultipleInput[2]);
+
+        int result = Result.libraryFine(d1, m1, y1, d2, m2, y2);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
+
+===========================================================================================
+
+// Counting Valleys
+
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'countingValleys' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER steps
+     *  2. STRING path
+     */
+
+    public static int countingValleys(int steps, String path) {
+    // Write your code here
+    int sum=0;
+        int vally=0;
+        for(int i=0;i<steps;i++)
+        {
+            if(path.charAt(i)=='U')
+            {
+                if(sum==-1)
+                {
+                    vally++;
+                }
+                sum++;
+            } else{
+                sum--;
+            }
+        }
+       return vally;
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int steps = Integer.parseInt(bufferedReader.readLine().trim());
+
+        String path = bufferedReader.readLine();
+
+        int result = Result.countingValleys(steps, path);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
+
+==============================================================================
+//Mini-Max Sum
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'miniMaxSum' function below.
+     *
+     * The function accepts INTEGER_ARRAY arr as parameter.
+     */
+
+    public static void miniMaxSum(List<Integer> arr) {
+    // Write your code here
+     long totalsum=arr.get(0);
+        int max=arr.get(0);
+        int min=arr.get(0);
+        for(int i=1;i<arr.size();i++)
+        {
+            totalsum=totalsum+arr.get(i);
+            
+            if(arr.get(i)>max)
+            {
+                max=arr.get(i);
+            }
+            if(arr.get(i)<min)
+            {
+                min=arr.get(i);
+            }
+        }
+        System.out.println((totalsum-max)+" "+(totalsum-min));
+
+    }
+    }
+
+
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        List<Integer> arr = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+            .map(Integer::parseInt)
+            .collect(toList());
+
+        Result.miniMaxSum(arr);
+
+        bufferedReader.close();
+    }
+}
+
+====================================================================================
+
+//Divisible Sum Pairs
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'divisibleSumPairs' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER n
+     *  2. INTEGER k
+     *  3. INTEGER_ARRAY ar
+     */
+
+    public static int divisibleSumPairs(int n, int k, List<Integer> ar) {
+    // Write your code here
+        int pair=0;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                if((ar.get(i)+ar.get(j))%k==0)
+                {
+                    pair++;
+                }
+            }
+        }
+        return pair;
+
+    }
+    }
+
+
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+
+        int n = Integer.parseInt(firstMultipleInput[0]);
+
+        int k = Integer.parseInt(firstMultipleInput[1]);
+
+        List<Integer> ar = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+            .map(Integer::parseInt)
+            .collect(toList());
+
+        int result = Result.divisibleSumPairs(n, k, ar);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
+=========================================================================================
+
+//Drawing Book
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'pageCount' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER n
+     *  2. INTEGER p
+     */
+
+    public static int pageCount(int n, int p) {
+    // Write your code here
+        
+        int front=p/2;
+        int back=(n/2)-front;
+        
+        return Math.min(front,back);
+
+
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int n = Integer.parseInt(bufferedReader.readLine().trim());
+
+        int p = Integer.parseInt(bufferedReader.readLine().trim());
+
+        int result = Result.pageCount(n, p);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
+
+==========================================================================================
+//Grading Students
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+    /*
+     * Complete the 'gradingStudents' function below.
+     *
+     * The function is expected to return an INTEGER_ARRAY.
+     * The function accepts INTEGER_ARRAY grades as parameter.
+     */
+
+    public static List<Integer> gradingStudents(List<Integer> grades) {
+    // Write your code here
+
+        
+        List<Integer>list=new ArrayList<>();
+        for(int i=0;i<grades.size();i++)
+        {
+        int x=grades.get(i);
+        int rem=x%5;
+        if(x>=38 && ((x+5)-rem)-x<3)
+        {
+            list.add((x+5)-rem);
+        }
+        else{
+            list.add(x);
+        }
+        }
+        return list;
+
+    }
+    }
+
+
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int gradesCount = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<Integer> grades = IntStream.range(0, gradesCount).mapToObj(i -> {
+            try {
+                return bufferedReader.readLine().replaceAll("\\s+$", "");
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        })
+            .map(String::trim)
+            .map(Integer::parseInt)
+            .collect(toList());
+
+        List<Integer> result = Result.gradingStudents(grades);
+
+        bufferedWriter.write(
+            result.stream()
+                .map(Object::toString)
+                .collect(joining("\n"))
+            + "\n"
+        );
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
+
+=====================================================================================
+
+//Birthday Cake Candles
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        
+        int n = in.nextInt();
+        int max = 0;
+        int sum = 0;
+        int num;
+        for(int i =0; i < n; i++){
+            num = in.nextInt();
+            if(num > max){
+                sum = 1;
+                max = num;
+            }else if(num == max){
+                sum++;
+            }
+        }
+        System.out.println(sum);
+    }
+}
+==========================================================
+
+//Migratory Birds
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] birds = new int[5];
+        for (int i = 0; i < n; i++) birds[in.nextInt()-1]++;
+        int max = 0;
+        int id = 0;
+        for (int i = 0; i < 5; i++) {
+            if (birds[i] > max) {
+                max = birds[i];
+                id = i+1;
+            }
+        }
+        System.out.println(id);
+    }
+}
+
+
+========================================================================
+
+//Subarray Division
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] s = new int[n];
+        for(int s_i=0; s_i < n; s_i++){
+            s[s_i] = sc.nextInt();
+        }
+        int d = sc.nextInt();
+        int m = sc.nextInt();
+        int result = 0;
+        
+        for(int i = 0; i < n-m+1; i++){
+            int tmpSum = 0;
+            for(int j = i; j < i+m; j++){
+                tmpSum+= s[j];
+            } 
+            if(tmpSum == d){
+                result++;
+            }
+        }
+        System.out.println(result);
+        
+    }
+}
+
+============================================
+
+//Super Reduced String
+
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    private static String super_reduced_string(String s){
+        Stack<Character> stack = new Stack<>();
+        for(char ch: s.toCharArray())
+        {
+            if(!stack.isEmpty() && stack.peek()==ch)
+                stack.pop();
+            else
+                stack.push(ch);
+        }
+        if(stack.isEmpty())
+            return "Empty String";
+        else
+        {
+            StringBuilder sb = new StringBuilder();
+            while(!stack.isEmpty())
+            {
+                sb.append(stack.peek());
+                stack.pop();
+            }
+            sb.reverse();
+            String result = String.valueOf(sb);
+            return result;
+        }
+        
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.next();
+        String result = super_reduced_string(s);
+        System.out.println(result);
+    }
+}     
+
+=========================================================
+//Quicksort 1 - Partition
+
+import java.util.*;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+           int n = sc.nextInt();
+           int[] arr = new int[n];
+           for(int i=0;i<n;i++){
+              arr[i]=sc.nextInt(); 
+           }
+           partition(arr);
+           printArray(arr);
+    }
+    static void printArray(int[] arr) {
+         for(int n: arr){
+            System.out.print(n+" ");
+         }
+           System.out.println("");
+    }
+    static void partition(int[] arr) {
+        int p=arr[0];
+        int[] copy=Arrays.copyOf(arr, arr.length);
+        int c=0;
+        for(int i=1;i<arr.length;i++){
+            if(copy[i]<=p){
+                arr[c]=copy[i];
+                c++;
+            }
+        }
+        arr[c]=p;
+        c++;
+        for(int j=0;j<arr.length;j++){
+            if(copy[j]>p){
+                arr[c]=copy[j];
+                c++;
+            }
+        }
+    }   
+}
+
+=======================================================================================
+
+//Number Line Jumps
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+class Result {
+
+    
+
+    public static String kangaroo(int x1, int v1, int x2, int v2) {
+    
+     // Write your code here
+   
+        if (x1 == x2) {
+            return "YES";
+        }
+        int diff = v1 > v2 ? v1 - v2 : v2 - v1;
+        if (diff == 0) {
+            return "NO";
+        }
+        
+        int xdiff = x1 - x2;
+        int vdiff = v2 - v1;
+        
+        if ((xdiff < 0 && vdiff < 0) || (xdiff > 0 && vdiff > 0)) {
+            int mod = xdiff % vdiff;
+            int mod2 = vdiff % xdiff;
+            if (mod == 0 || mod2 == 0) {
+                return "YES";
+            }
+        }
+        return "NO";
+    
+
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+
+        int x1 = Integer.parseInt(firstMultipleInput[0]);
+
+        int v1 = Integer.parseInt(firstMultipleInput[1]);
+
+        int x2 = Integer.parseInt(firstMultipleInput[2]);
+
+        int v2 = Integer.parseInt(firstMultipleInput[3]);
+
+        String result = Result.kangaroo(x1, v1, x2, v2);
+
+        bufferedWriter.write(result);
+        bufferedWriter.newLine();
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
+
+==============================================================================================
+
+
+
+
+
+
